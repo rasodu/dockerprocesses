@@ -1,0 +1,25 @@
+#!/bin/bash
+function help {
+    printf 'HELP MESSAGE
+------------
+toolinstall status\t\t//status of dtod containers
+toolinstall start\t\t//start all dtod containers
+toolinstall clean\t\t//remove all dtod containers. networks and volumes
+toolinstall clean_deep\t\t//remove all container, networks and volumes
+toolinstall clean_images\t//remove all images
+toolinstall help\t\t//print help message
+'
+}
+if [ "$1" = "status" ]; then
+    cd ~/.dtod && make status
+elif [ "$1" = "start" ]; then
+    cd ~/.dtod && make start
+elif [ "$1" = "clean" ]; then
+    cd ~/.dtod && make clean
+elif [ "$1" = "clean_deep" ]; then
+    cd ~/.dtod && make clean_deep
+elif [ "$1" = "clean_images" ]; then
+    cd ~/.dtod && make clean_images
+else
+    help
+fi
